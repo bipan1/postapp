@@ -1,16 +1,3 @@
-.container {
-  padding: 0 2rem;
-}
-
-.main {
-  min-height: 100vh;
-  padding: 4rem 0;
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
 
 .footer {
   display: flex;
@@ -113,4 +100,25 @@
     width: 100%;
     flex-direction: column;
   }
+}
+
+.register{
+  flex : 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.trigger {
+  font-size: 18px;
+  line-height: 64px;
+  padding: 0 24px;
+  cursor: pointer;
+  transition: color 0.3s;
+  z-index: 1000;
+}
+
+.trigger:hover {
+  color: #1890ff;
 }
