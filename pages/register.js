@@ -2,14 +2,21 @@ import {Card, Form, Input,Button} from "antd";
 import 'antd/dist/antd.css';
 import styles from '../styles/Home.module.css'
 import {StepBackwardOutlined} from "@ant-design/icons";
-import Link from 'next/link'
+import Link from 'next/link';
+import { collection, addDoc } from 'firebase/firestore';
+import { app, database } from '../firebaseConfig';
 
+const dbInstance = collection(database, 'users');
 export default function Register() {
 
     const [form] = Form.useForm();
 
     const onFinish = (values) => {
+
         console.log('Received values of form: ', values);
+        addDoc(dbInstance, {...values})
+        .then(() => {
+        })
     };
 
     return (
