@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
+import 'antd/dist/antd.css';
 
 export default function Home() {
   return (
@@ -11,7 +12,7 @@ export default function Home() {
       </Head>
 
       <main className={styles.main}>
-
+        <h1>Bipan</h1>
       </main>
     </div>
   )
