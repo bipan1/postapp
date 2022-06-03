@@ -69,9 +69,12 @@ const Home = (props) => {
             <h1 style={{marginLeft : "10px"}}>Posts Lists</h1>
             {props.posts.length > 0 && 
               props.posts.map(post => (
-                <Card key={post.title} title={post.title} style={{margin : "10px"}}>
+                <div key={post.title}>
+                  <Card  title={post.title} style={{margin : "10px"}}>
                 <p>{post.content}</p>
                 </Card>
+                </div>
+                
             ))}
             <InfoCircleOutlined style={{color : "green"}}/> You can register at top right corner for more features.
           </Content> 
