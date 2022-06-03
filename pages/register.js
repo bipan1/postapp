@@ -3,34 +3,27 @@ import 'antd/dist/antd.css';
 import styles from '../styles/Home.module.css'
 import {StepBackwardOutlined} from "@ant-design/icons";
 import Link from 'next/link';
-import { collection, addDoc, getDocs } from 'firebase/firestore';
-import { app, database } from '../firebaseConfig';
 import React, {useEffect} from "react";
-const dbInstance = collection(database, 'users');
 
 export default function Register() {
 
     const [form] = Form.useForm();
 
-    const onFinish = (values) => {
+    const onFinish = async(values) => {
 
         console.log('Received values of form: ', values);
-        addDoc(dbInstance, {...values})
-        .then((res) => {
-            console.log(res)
-        })
+        const response = await fetch("/api/register", {
+            method: "POST",
+            body: JSON.stringify(values),
+            headers: {
+              "content-Type": "application/json",
+            },
+        });
+        console.log(response)
+        const data = await response.json();
+    
+        console.log(data);
     };
-
-    const getNotes = () => {
-        getDocs(dbInstance)
-            .then((data) => {
-                console.log(data)
-            })
-    }
-
-    useEffect(() => {
-        getNotes();
-    }, [])
 
     return (
         <div className={styles.register} style={{background : "#ececec", minHeight : "100vh"}}>
