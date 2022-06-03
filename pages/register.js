@@ -3,7 +3,7 @@ import 'antd/dist/antd.css';
 import styles from '../styles/Home.module.css'
 import {StepBackwardOutlined} from "@ant-design/icons";
 import Link from 'next/link';
-import React, {useEffect} from "react";
+import React from "react";
 
 export default function Register() {
 
@@ -12,17 +12,6 @@ export default function Register() {
     const onFinish = async(values) => {
 
         console.log('Received values of form: ', values);
-        const response = await fetch("/api/register", {
-            method: "POST",
-            body: JSON.stringify(values),
-            headers: {
-              "content-Type": "application/json",
-            },
-        });
-        console.log(response)
-        const data = await response.json();
-    
-        console.log(data);
     };
 
     return (
