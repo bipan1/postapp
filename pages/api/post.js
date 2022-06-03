@@ -12,7 +12,7 @@ const handler = async (req, res) => {
 
     client.close();
 
-    res.status(201).send({ Message: "User inserted" });
+    res.status(201).send({ Message: "Post added successfully" });
   }
 };
 
